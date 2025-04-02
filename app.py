@@ -12,14 +12,19 @@ def roll():
 
 
 options = [ 
-    'so cool'
+    2,
+    4,
+    6,
+    8,
+    12,
+    20,
+    100
 ] 
-
 
 root = Tk()
 root.title("Cool tärning")
 
-clicked = StringVar() 
+clicked = StringVar()
 
 text_box_1 = Label(root, text = 0)
 text_box_1.pack()
@@ -32,5 +37,4 @@ nuke_button.pack()
 
 drop = OptionMenu( root , clicked , *options ) 
 drop.pack() 
-
 root.mainloop()
