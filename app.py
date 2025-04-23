@@ -2,7 +2,6 @@ from tkinter import *
 from random import randint
 
 dice_sides = 6
-high_score = 0
 
 def show(): 
     button.config( text = 'clicked.get()' ) 
@@ -42,9 +41,6 @@ nuke_button = Button(root, text='Bomb', width=25, command=root.destroy)
 nuke_button.pack()
 
 drop = OptionMenu( root , clicked , *options )
-
-text_box_2 = Label(root, text = high_score )
-text_box_2.pack()
 
 drop.pack() 
 root.mainloop()
