@@ -3,6 +3,8 @@ from random import randint
 
 dice_sides = 6
 
+history=[]
+
 def show(): 
     button.config( text = 'clicked.get()' ) 
 
@@ -13,6 +15,9 @@ def update_dice_sides(*args):
 def roll():
     roll=randint(1,dice_sides)
     text_box_1.config(text=roll)
+    history.append(roll)
+    print(history)
+    text_box.config(text=history)
 
 options = [ 
     2,
@@ -48,13 +53,16 @@ roll_button.pack()
 nuke_button = Button(root, text='Bomb', width=25, command=BOMB)
 nuke_button.pack()
 
+drop = OptionMenu( root , clicked , *options )
+
 button = Button(root, text="Submit", width=25, command=submit)
 button.pack
 
 input_field = Entry(root, width=30)
 input_field.pack()
 
-drop = OptionMenu( root , clicked , *options )
+text_box = Label(root, text=0)
+text_box.pack()
 
-drop.pack() 
+drop.pack()
 root.mainloop()
