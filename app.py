@@ -22,7 +22,15 @@ options = [
     12,
     20,
     100
-] 
+]
+
+def submit():
+    user_input = input_field.get()
+    print(user_input) 
+
+def BOMB():
+    root.config(bg="red")
+    root.after(2000, root.destroy) 
 
 root = Tk()
 root.title("Cool tärning")
@@ -37,8 +45,14 @@ text_box_1.pack()
 roll_button = Button(root, text='Slå tärning', width=25, command=roll)
 roll_button.pack()
 
-nuke_button = Button(root, text='Bomb', width=25, command=root.destroy)
+nuke_button = Button(root, text='Bomb', width=25, command=BOMB)
 nuke_button.pack()
+
+button = Button(root, text="Submit", width=25, command=submit)
+button.pack
+
+input_field = Entry(root, width=30)
+input_field.pack()
 
 drop = OptionMenu( root , clicked , *options )
 
