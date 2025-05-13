@@ -16,8 +16,11 @@ def roll():
     roll=randint(1,dice_sides)
     text_box_1.config(text=roll)
     history.append(roll)
-    print(history)
     text_box.config(text=history)
+
+def clear():
+    text_box.config(text= 0)
+    history.clear()
 
 options = [ 
     2,
@@ -29,20 +32,16 @@ options = [
     100
 ]
 
-def submit():
-    user_input = input_field.get()
-    print(user_input) 
-
 def BOMB():
     root.config(bg="red")
-    root.after(2000, root.destroy) 
+    root.after(2000, root.destroy)
 
 root = Tk()
 root.title("Cool tärning")
 
 clicked = StringVar()
-clicked.set(options[0]) 
-clicked.trace("w", update_dice_sides) 
+clicked.set(options[0])
+clicked.trace("w", update_dice_sides)
 
 text_box_1 = Label(root, text = 0)
 text_box_1.pack()
@@ -55,8 +54,8 @@ nuke_button.pack()
 
 drop = OptionMenu( root , clicked , *options )
 
-button = Button(root, text="Submit", width=25, command=submit)
-button.pack
+clear_button = Button(root, text= "Clear History", width=25, command=clear)
+clear_button.pack()
 
 input_field = Entry(root, width=30)
 input_field.pack()
