@@ -16,9 +16,11 @@ def middleworth():
     middle = sum(history)/len(history)
     text_box.config(text=middle)
 
+def roll_dice(sides):
+    return randint(1,sides)
 
 def roll():
-    roll=randint(1,dice_sides)
+    roll=roll_dice(dice_sides)
     text_box_1.config(text=roll)
     history.append(roll)
     text_box.config(text=history)
