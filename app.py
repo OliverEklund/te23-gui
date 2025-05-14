@@ -12,6 +12,11 @@ def update_dice_sides(*args):
     global dice_sides
     dice_sides = int(clicked.get())
 
+def middleworth():
+    middle = sum(history)/len(history)
+    text_box.config(text=middle)
+
+
 def roll():
     roll=randint(1,dice_sides)
     text_box_1.config(text=roll)
@@ -56,6 +61,9 @@ drop = OptionMenu( root , clicked , *options )
 
 clear_button = Button(root, text= "Clear History", width=25, command=clear)
 clear_button.pack()
+
+middle_button = Button(root, text="History Arithmetic Value", width=25, command=middleworth)
+middle_button.pack()
 
 input_field = Entry(root, width=30)
 input_field.pack()
